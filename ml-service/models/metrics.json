@@ -1,0 +1,177 @@
+{
+  "dataset_info": {
+    "train_samples": 41928,
+    "test_samples": 10482,
+    "features_count": 35,
+    "features": [
+      "hour_sin",
+      "hour_cos",
+      "month_sin",
+      "month_cos",
+      "doy_sin",
+      "doy_cos",
+      "latitude",
+      "longitude",
+      "elevation",
+      "temperature_2m",
+      "relative_humidity_2m",
+      "dew_point_2m",
+      "surface_pressure",
+      "cloud_cover",
+      "wind_speed_10m",
+      "temp_dew_diff",
+      "temp_lag_1",
+      "temp_lag_3",
+      "temp_lag_6",
+      "temp_lag_24",
+      "humidity_lag_1",
+      "humidity_lag_3",
+      "humidity_lag_6",
+      "pressure_lag_1",
+      "pressure_lag_3",
+      "pressure_lag_6",
+      "wind_lag_1",
+      "wind_lag_3",
+      "rain_lag_1",
+      "rain_lag_3",
+      "pressure_diff_3h",
+      "temp_diff_3h",
+      "temp_roll_mean_6h",
+      "temp_roll_std_6h",
+      "humidity_roll_mean_6h"
+    ]
+  },
+  "regression": {
+    "temperature": {
+      "model": "XGBoost Regressor",
+      "mae": 0.479,
+      "rmse": 0.689,
+      "r2": 0.9943,
+      "baseline_ridge": {
+        "mae": 0.514,
+        "rmse": 0.742,
+        "r2": 0.9934
+      }
+    },
+    "humidity": {
+      "model": "XGBoost Regressor",
+      "mae": 2.572,
+      "rmse": 3.756,
+      "r2": 0.9497
+    },
+    "wind_speed": {
+      "model": "LightGBM Regressor",
+      "mae": 1.856,
+      "rmse": 2.678,
+      "r2": 0.8727
+    },
+    "pressure": {
+      "model": "XGBoost Regressor",
+      "mae": 0.429,
+      "rmse": 1.393,
+      "r2": 0.9819
+    }
+  },
+  "classification": {
+    "rain": {
+      "model": "XGBoost Classifier",
+      "scale_pos_weight": 4.4,
+      "accuracy": 0.8656,
+      "precision": 0.5306,
+      "recall": 0.8253,
+      "f1_score": 0.6459,
+      "roc_auc": 0.9321,
+      "baseline_logistic_regression": {
+        "accuracy": 0.8651,
+        "f1_score": 0.63,
+        "roc_auc": 0.9197
+      }
+    }
+  },
+  "feature_importance": {
+    "temperature_top_10": [
+      [
+        "temperature_2m",
+        0.6529018878936768
+      ],
+      [
+        "temp_lag_1",
+        0.3088544011116028
+      ],
+      [
+        "temp_lag_24",
+        0.009378697723150253
+      ],
+      [
+        "temp_diff_3h",
+        0.0071407887153327465
+      ],
+      [
+        "dew_point_2m",
+        0.003651447594165802
+      ],
+      [
+        "temp_roll_mean_6h",
+        0.0014363281661644578
+      ],
+      [
+        "latitude",
+        0.0011624497128650546
+      ],
+      [
+        "longitude",
+        0.0010583836119621992
+      ],
+      [
+        "humidity_roll_mean_6h",
+        0.001032379805110395
+      ],
+      [
+        "pressure_diff_3h",
+        0.0009879146236926317
+      ]
+    ],
+    "rain_top_10": [
+      [
+        "rain_lag_1",
+        0.5012450814247131
+      ],
+      [
+        "rain_lag_3",
+        0.20441827178001404
+      ],
+      [
+        "cloud_cover",
+        0.05401044338941574
+      ],
+      [
+        "relative_humidity_2m",
+        0.014927615411579609
+      ],
+      [
+        "surface_pressure",
+        0.014614700339734554
+      ],
+      [
+        "humidity_roll_mean_6h",
+        0.011549655348062515
+      ],
+      [
+        "humidity_lag_6",
+        0.010765974409878254
+      ],
+      [
+        "elevation",
+        0.010080611333251
+      ],
+      [
+        "dew_point_2m",
+        0.009432308375835419
+      ],
+      [
+        "temp_diff_3h",
+        0.009382091462612152
+      ]
+    ]
+  }
+}
